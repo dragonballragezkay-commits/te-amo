@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una pregunta importante</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('bts.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+/* Capa oscura elegante encima del fondo */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 0;
+}
+
+/* Contenedor principal */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    animation: fadeIn 2s ease;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+/* Botones */
+button {
+    padding: 14px 35px;
+    margin: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#si {
+    background: linear-gradient(45deg, #b993d6, #8ca6db);
+    color: white;
+    box-shadow: 0 0 15px rgba(185,147,214,0.7);
+}
+
+#si:hover {
+    transform: scale(1.1);
+}
+
+#no {
+    background: #e74c3c;
+    color: white;
+    position: relative;
+}
+
+/* Partículas flotando */
+.particula {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: flotar 8s linear infinite;
+}
+
+@keyframes flotar {
+    from { transform: translateY(100vh); opacity: 0; }
+    to { transform: translateY(-10vh); opacity: 1; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1 id="pregunta">¿Quieres seguir conmigo?</h1>
+    <div>
+        <button id="si" onclick="siguiente()">Sí</button>
+        <button id="no" onmouseover="mover()">No</button>
+    </div>
+</div>
+
+<script>
+
+let paso = 0;
+
+const preguntas = [
+"¿Quieres seguir conmigo?",
+"Si dijiste que sí... ¿estás segura?",
+"¿Prometes arreglar desde el corazón y no desde el orgullo?",
+"Entonces... ¿estás lista para arreglar?",
+"Entonces, ¿mereces ver mi mensaje desde el corazón?"
+];
+
+function siguiente() {
+    paso++;
+    if (paso < preguntas.length) {
+        document.getElementById("pregunta").innerText = preguntas[paso];
+    } else {
+        mostrarCarta();
+    }
+}
+
+function mover() {
+    const boton = document.getElementById("no");
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 100 - 50;
+    boton.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+function mostrarCarta() {
+document.body.innerHTML = `
+<div style="padding:40px;max-width:900px;margin:auto;color:white;font-family:Georgia,serif;background:rgba(0,0,0,0.7);border-radius:20px;line-height:1.8;overflow-y:auto;height:90vh;">
+${document.querySelector('.container').innerHTML = ""}
+
+<p>Me gustaría empezar diciendo algo claro: yo quiero seguir contigo, y quiero que esto funcione. No quiero empezar con otra persona, porque si sigo aquí es porque todavía creo en nosotros. Pero también quiero que entiendas algo importante: esto es de los dos. No puede ser que solo uno esté intentando arreglar mientras el otro solo escucha y repite “ya sé” o “sí sé” sin hacer nada diferente.</p>
+
+<p>Sobre lo que mencionaste de que te dije “no piensas”, estás malinterpretando lo que quise decir. No fue un ataque a tu inteligencia ni nada parecido. Me refería a que no estabas pensando en las consecuencias de lo que pasó, ni en cómo me afectó. Cuando te dije eso, fue porque sentía que no estabas reflexionando sobre lo que hiciste y lo que ocasionaste. Y si no reflexionas, ¿cómo vas a arreglarlo? Para mí, pensar también es hacerse responsable y actuar para mejorar.</p>
+
+<p>Lo mismo con “no me importa lo que hagas”. No lo dije porque realmente no me importes. Lo dije porque estaba cansado. Cansado de pedir que arregles las cosas y sentir que no había un esfuerzo real. En ese momento lo único que quería era que dejaras de decir lo mismo y empezaras a hacer algo diferente. No me refería a que no me importaras tú, sino que en ese momento lo único que importaba era solucionar lo nuestro.</p>
+
+<p>Tienes que entender que también me canso. También me agota sentir que hablo y no soy entendido. Llevo explicando lo mismo muchas veces, intentando que veas mi punto, y cuando vuelves a sacar las mismas frases como si no hubieras entendido nada, obviamente eso frustra. Y sí, por eso salió lo de “berrinchuda y caprichosa”, porque siento que a veces no lees realmente lo que te digo, sino que te quedas con una parte y reaccionas sin intentar comprender el fondo.</p>
+
+<p>No estoy diciendo que yo sea perfecto. Seguro también me equivoco en cómo digo las cosas. Pero al menos estoy aquí explicando una vez más lo que siento porque quiero arreglarlo. Lo que no quiero es que todo se reduzca a que yo soy el malo por mis palabras, cuando el problema principal es que no veo acciones de tu parte para cambiar lo que prometiste cambiar.</p>
+
+<p>En vacaciones me dijiste en persona que ya habías cambiado, que no volverías a comportarte de esa manera. Yo quiero creer en eso. Pero las palabras se demuestran con hechos. Este es el momento perfecto para demostrarme que lo que dijiste no fue solo algo para calmar el momento.</p>
+
+<p>Yo no quiero pelear. No quiero competir a ver quién tiene más razón. Quiero que ambos reconozcamos lo que hicimos mal y que ambos hagamos algo para mejorar. Si yo estoy aquí escribiendo todo esto, es porque me importas. Pero necesito sentir que también te importa lo suficiente como para actuar, no solo decir que entiendes.</p>
+
+<p>Porque una relación no se arregla sola. Se arregla con intención, con humildad, con acciones y con ganas reales de mejorar. Y yo estoy dispuesto a poner de mi parte, pero necesito ver que tú también lo estás.</p>
+
+</div>
+`;
+}
+
+/* Crear partículas */
+for (let i = 0; i < 40; i++) {
+    let p = document.createElement("div");
+    p.className = "particula";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    document.body.appendChild(p);
+}
+
+</script>
+
+</body>
+</html>
